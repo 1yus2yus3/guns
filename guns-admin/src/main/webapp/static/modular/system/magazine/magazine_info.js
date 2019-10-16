@@ -1,8 +1,8 @@
 /**
  * 初始化通知详情对话框
  */
-var NoticeInfoDlg = {
-    noticeInfoData: {},
+var MagazineInfoDlg = {
+    MagazineInfoData: {},
     editor: null,
     validateFields: {
         title: {
@@ -18,8 +18,8 @@ var NoticeInfoDlg = {
 /**
  * 清除数据
  */
-NoticeInfoDlg.clearData = function () {
-    this.noticeInfoData = {};
+MagazineInfoDlg.clearData = function () {
+    this.MagazineInfoData = {};
 }
 
 /**
@@ -28,8 +28,8 @@ NoticeInfoDlg.clearData = function () {
  * @param key 数据的名称
  * @param val 数据的具体值
  */
-NoticeInfoDlg.set = function (key, value) {
-    this.noticeInfoData[key] = (typeof value == "undefined") ? $("#" + key).val() : value;
+MagazineInfoDlg.set = function (key, value) {
+    this.MagazineInfoData[key] = (typeof value == "undefined") ? $("#" + key).val() : value;
     return this;
 }
 
@@ -39,38 +39,38 @@ NoticeInfoDlg.set = function (key, value) {
  * @param key 数据的名称
  * @param val 数据的具体值
  */
-NoticeInfoDlg.get = function (key) {
+MagazineInfoDlg.get = function (key) {
     return $("#" + key).val();
 }
 
 /**
  * 关闭此对话框
  */
-NoticeInfoDlg.close = function () {
-    parent.layer.close(window.parent.Notice.layerIndex);
+MagazineInfoDlg.close = function () {
+    parent.layer.close(window.parent.Magazine.layerIndex);
 }
 
 /**
  * 收集数据
  */
-NoticeInfoDlg.collectData = function () {
-    this.noticeInfoData['content'] = NoticeInfoDlg.editor.txt.html();
+MagazineInfoDlg.collectData = function () {
+    this.MagazineInfoData['content'] = MagazineInfoDlg.editor.txt.html();
     this.set('id').set('title');
 }
 
 /**
  * 验证数据是否为空
  */
-NoticeInfoDlg.validate = function () {
-    $('#noticeInfoForm').data("bootstrapValidator").resetForm();
-    $('#noticeInfoForm').bootstrapValidator('validate');
-    return $("#noticeInfoForm").data('bootstrapValidator').isValid();
+MagazineInfoDlg.validate = function () {
+    $('#magazineInfoForm').data("bootstrapValidator").resetForm();
+    $('#magazineInfoForm').bootstrapValidator('validate');
+    return $("#magazineInfoForm").data('bootstrapValidator').isValid();
 };
 
 /**
  * 提交添加
  */
-NoticeInfoDlg.addSubmit = function () {
+MagazineInfoDlg.addSubmit = function () {
 
     this.clearData();
     this.collectData();
@@ -80,10 +80,10 @@ NoticeInfoDlg.addSubmit = function () {
     }
 
     //提交信息
-    var ajax = new $ax(Feng.ctxPath + "/notice/add", function (data) {
+    var ajax = new $ax(Feng.ctxPath + "/magazine/add", function (data) {
         Feng.success("添加成功!");
-        window.parent.Notice.table.refresh();
-        NoticeInfoDlg.close();
+        window.parent.Magazine.table.refresh();
+        MagazineInfoDlg.close();
     }, function (data) {
         Feng.error("添加失败!" + data.responseJSON.message + "!");
     });
@@ -94,7 +94,7 @@ NoticeInfoDlg.addSubmit = function () {
 /**
  * 提交修改
  */
-NoticeInfoDlg.editSubmit = function () {
+MagazineInfoDlg.editSubmit = function () {
 
     this.clearData();
     this.collectData();
@@ -104,10 +104,10 @@ NoticeInfoDlg.editSubmit = function () {
     }
 
     //提交信息
-    var ajax = new $ax(Feng.ctxPath + "/notice/update", function (data) {
+    var ajax = new $ax(Feng.ctxPath + "/magazine/update", function (data) {
         Feng.success("修改成功!");
-        window.parent.Notice.table.refresh();
-        NoticeInfoDlg.close();
+        window.parent.Magazine.table.refresh();
+        MagazineInfoDlg.close();
     }, function (data) {
         Feng.error("修改失败!" + data.responseJSON.message + "!");
     });
@@ -116,7 +116,7 @@ NoticeInfoDlg.editSubmit = function () {
 }
 
 $(function () {
-    Feng.initValidator("noticeInfoForm", NoticeInfoDlg.validateFields);
+    Feng.initValidator("noticeInfoForm", MagazineInfoDlg.validateFields);
 
     //初始化编辑器
     var E = window.wangEditor;

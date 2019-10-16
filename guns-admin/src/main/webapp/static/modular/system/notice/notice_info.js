@@ -47,7 +47,7 @@ NoticeInfoDlg.get = function (key) {
  * 关闭此对话框
  */
 NoticeInfoDlg.close = function () {
-    parent.layer.close(window.parent.Notice.layerIndex);
+    parent.layer.close(window.parent.Magazine.layerIndex);
 }
 
 /**
@@ -82,7 +82,7 @@ NoticeInfoDlg.addSubmit = function () {
     //提交信息
     var ajax = new $ax(Feng.ctxPath + "/notice/add", function (data) {
         Feng.success("添加成功!");
-        window.parent.Notice.table.refresh();
+        window.parent.Magazine.table.refresh();
         NoticeInfoDlg.close();
     }, function (data) {
         Feng.error("添加失败!" + data.responseJSON.message + "!");
@@ -106,7 +106,7 @@ NoticeInfoDlg.editSubmit = function () {
     //提交信息
     var ajax = new $ax(Feng.ctxPath + "/notice/update", function (data) {
         Feng.success("修改成功!");
-        window.parent.Notice.table.refresh();
+        window.parent.Magazine.table.refresh();
         NoticeInfoDlg.close();
     }, function (data) {
         Feng.error("修改失败!" + data.responseJSON.message + "!");

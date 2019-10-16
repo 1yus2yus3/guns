@@ -1,7 +1,7 @@
 /**
  * 通知管理初始化
  */
-var Notice = {
+var Magazine = {
     id: "NoticeTable",	//表格id
     seItem: null,		//选中的条目
     table: null,
@@ -11,7 +11,7 @@ var Notice = {
 /**
  * 初始化表格的列
  */
-Notice.initColumn = function () {
+Magazine.initColumn = function () {
     return [
         {field: 'selectItem', radio: true},
         {title: 'id', field: 'id', visible: false, align: 'center', valign: 'middle'},
@@ -25,13 +25,13 @@ Notice.initColumn = function () {
 /**
  * 检查是否选中
  */
-Notice.check = function () {
+Magazine.check = function () {
     var selected = $('#' + this.id).bootstrapTable('getSelections');
     if (selected.length == 0) {
         Feng.info("请先选中表格中的某一记录！");
         return false;
     } else {
-        Notice.seItem = selected[0];
+        Magazine.seItem = selected[0];
         return true;
     }
 };
@@ -39,7 +39,7 @@ Notice.check = function () {
 /**
  * 点击添加通知
  */
-Notice.openAddNotice = function () {
+Magazine.openAddNotice = function () {
     var index = layer.open({
         type: 2,
         title: '添加通知',
@@ -54,7 +54,7 @@ Notice.openAddNotice = function () {
 /**
  * 打开查看通知详情
  */
-Notice.openNoticeDetail = function () {
+Magazine.openNoticeDetail = function () {
     if (this.check()) {
         var index = layer.open({
             type: 2,
@@ -62,7 +62,7 @@ Notice.openNoticeDetail = function () {
             area: ['800px', '420px'], //宽高
             fix: false, //不固定
             maxmin: true,
-            content: Feng.ctxPath + '/notice/notice_update/' + Notice.seItem.id
+            content: Feng.ctxPath + '/notice/notice_update/' + Magazine.seItem.id
         });
         this.layerIndex = index;
     }
@@ -71,36 +71,36 @@ Notice.openNoticeDetail = function () {
 /**
  * 删除通知
  */
-Notice.delete = function () {
+Magazine.delete = function () {
     if (this.check()) {
 
         var operation = function(){
             var ajax = new $ax(Feng.ctxPath + "/notice/delete", function (data) {
                 Feng.success("删除成功!");
-                Notice.table.refresh();
+                Magazine.table.refresh();
             }, function (data) {
                 Feng.error("删除失败!" + data.responseJSON.message + "!");
             });
-            ajax.set("noticeId", Notice.seItem.id);
+            ajax.set("noticeId", Magazine.seItem.id);
             ajax.start();
         };
 
-        Feng.confirm("是否删除通知 " + Notice.seItem.title + "?", operation);
+        Feng.confirm("是否删除通知 " + Magazine.seItem.title + "?", operation);
     }
 };
 
 /**
  * 查询通知列表
  */
-Notice.search = function () {
+Magazine.search = function () {
     var queryData = {};
     queryData['condition'] = $("#condition").val();
-    Notice.table.refresh({query: queryData});
+    Magazine.table.refresh({query: queryData});
 };
 
 $(function () {
-    var defaultColunms = Notice.initColumn();
-    var table = new BSTable(Notice.id, "/notice/list", defaultColunms);
+    var defaultColunms = Magazine.initColumn();
+    var table = new BSTable(Magazine.id, "/notice/list", defaultColunms);
     table.setPaginationType("client");
-    Notice.table = table.init();
+    Magazine.table = table.init();
 });
