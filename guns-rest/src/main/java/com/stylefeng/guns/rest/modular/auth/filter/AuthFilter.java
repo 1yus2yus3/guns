@@ -40,7 +40,7 @@ public class AuthFilter extends OncePerRequestFilter {
             return;
         }
         final String requestHeader = request.getHeader(jwtProperties.getHeader());
-        String authToken = null;
+        String authToken;
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
             authToken = requestHeader.substring(7);
 

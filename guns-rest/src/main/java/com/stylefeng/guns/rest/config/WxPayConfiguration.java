@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *
+ * 微信支付相关配置信息
  * @date: 2019/01/24 15:17
  * @description:
  */
