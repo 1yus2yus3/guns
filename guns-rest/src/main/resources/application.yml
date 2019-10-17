@@ -51,8 +51,8 @@ wx:
     msgDataFormat: JSON
   # 小程序
   small-program:
-    appid:
-    secret:
+    appid: wx13aa51d90f49a3d6
+    secret: 3fa018be939b187b95a6a8915a133b88
     token:
     aesKey:
     msgDataFormat: JSON

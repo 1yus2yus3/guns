@@ -1,5 +1,6 @@
 package com.stylefeng.guns.rest.userinfo;
 
+
 import com.stylefeng.guns.rest.common.persistence.model.User;
 
 /**

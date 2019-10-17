@@ -24,7 +24,13 @@ public enum BizExceptionEnum implements ServiceExceptionEnum {
     /**
      * 其他
      */
-    AUTH_REQUEST_ERROR(400, "账号密码错误");
+    AUTH_REQUEST_ERROR(600, "账号密码错误"),
+
+    /***
+     * 统一下单错误
+     */
+    WX_UNIFIED_PAY_ERROR(1001, "微信支付统一下单接口异常"),
+    ;
 
     BizExceptionEnum(int code, String message) {
         this.code = code;

@@ -6,12 +6,14 @@ import com.github.binarywang.wxpay.bean.result.WxPayUnifiedOrderResult;
 import com.github.binarywang.wxpay.exception.WxPayException;
 import com.github.binarywang.wxpay.service.WxPayService;
 import com.github.binarywang.wxpay.util.SignUtils;
-import com.stylefeng.guns.rest.config.QiNiuUploadConfig;
+import com.stylefeng.guns.core.exception.GunsException;
+import com.stylefeng.guns.rest.common.exception.BizExceptionEnum;
+import com.stylefeng.guns.rest.modular.pay.dto.WxPayResultDTO;
+import com.stylefeng.guns.rest.modular.pay.param.WxPayJSAPI;
 import com.stylefeng.guns.rest.modular.pay.service.WxPayManger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -38,20 +40,18 @@ public class WxPayMangerImpl implements WxPayManger {
     WxPayService wxPayService;
 
     @Override
-    public void unifiedPayOrder(String orderNum, String orderName, BigDecimal orderMoney,Long userId) {
+    public WxPayResultDTO unifiedPayOrder(WxPayJSAPI wxPayJSAPI) {
 
-        String openId = "";
         WxPayUnifiedOrderRequest wxPayUnifiedOrderRequest = new WxPayUnifiedOrderRequest();
         wxPayUnifiedOrderRequest.setAppid(wxMaService.getWxMaConfig().getAppid());
-        wxPayUnifiedOrderRequest.setOpenid(openId);
-        wxPayUnifiedOrderRequest.setBody(orderName);
-        wxPayUnifiedOrderRequest.setOutTradeNo(orderName);
-        wxPayUnifiedOrderRequest.setTotalFee(orderMoney.multiply(new BigDecimal(100)).intValue());
+        wxPayUnifiedOrderRequest.setOpenid(wxPayJSAPI.getOpenId());
+        wxPayUnifiedOrderRequest.setBody(wxPayJSAPI.getOrderDesc());
+        wxPayUnifiedOrderRequest.setOutTradeNo(wxPayJSAPI.getOrderNum());
+        wxPayUnifiedOrderRequest.setTotalFee(wxPayJSAPI.getOrderMoney().multiply(new BigDecimal(100)).intValue());
         wxPayUnifiedOrderRequest.setSpbillCreateIp("10.128.5.9");
-        wxPayUnifiedOrderRequest.setNotifyUrl("");
+        wxPayUnifiedOrderRequest.setNotifyUrl("http://www.baid.com");
         wxPayUnifiedOrderRequest.setTradeType("JSAPI");
         wxPayUnifiedOrderRequest.setSignType("MD5");
-
 
         WxPayUnifiedOrderResult requestResult = null;
         try {
@@ -60,27 +60,30 @@ public class WxPayMangerImpl implements WxPayManger {
             logger.error("发起微信支付请求异常，原始请求内容:",wxPayUnifiedOrderRequest.toXML());
             logger.error("发起微信支付请求异常，返回状态码:[{}],返回信息:[{}],错误代码:[{}],错误描述:[{}]",e.getReturnCode(),e.getReturnMsg(),e.getErrCode(),e.getErrCodeDes());
             logger.error("发起微信支付请求异常，异常:",e);
+            throw new GunsException(BizExceptionEnum.WX_UNIFIED_PAY_ERROR);
         }
 
 
-/*
-        PayOnlineWXTradeInfoDTO onlineTradeInfo = new PayOnlineWXTradeInfoDTO();
+        WxPayResultDTO wxPayResultDTO = new WxPayResultDTO();
 
-        onlineTradeInfo.setNonceStr(UUID.randomUUID().toString().replaceAll("-", ""));
-        onlineTradeInfo.setPackageStr("prepay_id="+requestResult.getPrepayId());
-        onlineTradeInfo.setTimeStamp(String.valueOf(System.currentTimeMillis()/1000));
-        onlineTradeInfo.setSignType("MD5");
+        wxPayResultDTO.setNonceStr(UUID.randomUUID().toString().replaceAll("-", ""));
+        wxPayResultDTO.setPackageStr("prepay_id="+requestResult.getPrepayId());
+        wxPayResultDTO.setTimeStamp(String.valueOf(System.currentTimeMillis()/1000));
+        wxPayResultDTO.setSignType("MD5");
+
 
         //二次签名
         Map<String,String> params = new HashMap<>();
-        params.put("timeStamp",onlineTradeInfo.getTimeStamp());
-        params.put("nonceStr",onlineTradeInfo.getNonceStr());
-        params.put("package",onlineTradeInfo.getPackageStr());
-        params.put("signType",onlineTradeInfo.getSignType());
+        params.put("timeStamp",wxPayResultDTO.getTimeStamp());
+        params.put("nonceStr",wxPayResultDTO.getNonceStr());
+        params.put("package",wxPayResultDTO.getPackageStr());
+        params.put("signType",wxPayResultDTO.getSignType());
         params.put("appId",wxPayUnifiedOrderRequest.getAppid());
 
         String paySign = SignUtils.createSign(params,"MD5",wxPayService.getConfig().getMchKey(),null);
 
-        onlineTradeInfo.setPaySign(paySign);*/
+        wxPayResultDTO.setPaySign(paySign);
+
+        return wxPayResultDTO;
     }
 }

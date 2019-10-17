@@ -1,6 +1,7 @@
 package com.stylefeng.guns.rest.modular.pay.service;
 
-import java.math.BigDecimal;
+import com.stylefeng.guns.rest.modular.pay.dto.WxPayResultDTO;
+import com.stylefeng.guns.rest.modular.pay.param.WxPayJSAPI;
 
 /**
  * Copyright (C), 杭州未智科技有限公司
@@ -11,5 +12,10 @@ import java.math.BigDecimal;
  */
 public interface WxPayManger {
 
-    void unifiedPayOrder(String orderNum, String orderName, BigDecimal orderMoney,Long userId);
+    /***
+     * 微信公众号支付统一下单接口
+     * @param wxPayJSAPI
+     * @return wxPayResultDTO 支付必要参数信息
+     */
+    WxPayResultDTO unifiedPayOrder(WxPayJSAPI wxPayJSAPI);
 }
