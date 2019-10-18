@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: 朔之
  * @date: 2019/01/24 15:15

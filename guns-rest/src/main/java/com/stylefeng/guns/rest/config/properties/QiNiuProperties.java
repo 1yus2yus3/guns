@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: 可乐
  * @date: 2018/08/14 10:27

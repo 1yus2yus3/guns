@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: Cola
  * @date: 2018/08/14 09:25

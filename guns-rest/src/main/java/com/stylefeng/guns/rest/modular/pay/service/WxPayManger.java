@@ -4,7 +4,7 @@ import com.stylefeng.guns.rest.modular.pay.dto.WxPayResultDTO;
 import com.stylefeng.guns.rest.modular.pay.param.WxPayJSAPI;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: Cola
  * @date: 2019/10/17 18:32

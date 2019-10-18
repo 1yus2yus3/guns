@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: Cola
  * @date: 2019/10/16 11:25

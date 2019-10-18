@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: Cola
  * @date: 2018/09/13 16:57

@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import static org.junit.Assert.*;
 
 /**
- * Copyright (C), 杭州未智科技有限公司
+ * Copyright (C),
  *
  * @author: Cola
  * @date: 2019/10/18 16:38
@@ -18,12 +18,15 @@ import static org.junit.Assert.*;
 public class WxMaConfigurationTest extends BaseTest {
 
     @Resource(name = "wxMaServiceSmallProgram")
-    WxMaService wxMaService;
+    WxMaService wxMaServiceSmallProgram;
+
+    @Resource(name = "wxMaServiceSubscription")
+    WxMaService wxMaServiceSubscription;
 
 
     @Test
     public void wxMaServiceSmallProgram() {
-        wxMaService.toString();
+        wxMaServiceSmallProgram.toString();
     }
 
     @Test
