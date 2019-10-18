@@ -16,16 +16,30 @@ public class WxSubscriptionProperties {
 
     public static final String REST_PREFIX = "wx.subscription";
 
-
+    /**
+     * 设置微信小程序的appid
+     */
     private String appid;
 
-    private String appsecret;
+    /**
+     * 设置微信小程序的Secret
+     */
+    private String secret;
 
-    private String mchid;
+    /**
+     * 设置微信小程序的token
+     */
+    private String token;
 
-    private String apikey;
+    /**
+     * 设置微信小程序的EncodingAESKey
+     */
+    private String aesKey;
 
-    private String notifyurl;
+    /**
+     * 消息格式，XML或者JSON
+     */
+    private String msgDataFormat;
 
     public String getAppid() {
         return appid;
@@ -35,35 +49,35 @@ public class WxSubscriptionProperties {
         this.appid = appid;
     }
 
-    public String getAppsecret() {
-        return appsecret;
+    public String getSecret() {
+        return secret;
     }
 
-    public void setAppsecret(String appsecret) {
-        this.appsecret = appsecret;
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 
-    public String getMchid() {
-        return mchid;
+    public String getToken() {
+        return token;
     }
 
-    public void setMchid(String mchid) {
-        this.mchid = mchid;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String getApikey() {
-        return apikey;
+    public String getAesKey() {
+        return aesKey;
     }
 
-    public void setApikey(String apikey) {
-        this.apikey = apikey;
+    public void setAesKey(String aesKey) {
+        this.aesKey = aesKey;
     }
 
-    public String getNotifyurl() {
-        return notifyurl;
+    public String getMsgDataFormat() {
+        return msgDataFormat;
     }
 
-    public void setNotifyurl(String notifyurl) {
-        this.notifyurl = notifyurl;
+    public void setMsgDataFormat(String msgDataFormat) {
+        this.msgDataFormat = msgDataFormat;
     }
 }

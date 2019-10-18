@@ -34,16 +34,13 @@ public class WxPayMangerImpl implements WxPayManger {
     private static final Logger logger = LoggerFactory.getLogger(WxPayService.class);
 
     @Autowired
-    WxMaService wxMaService;
-
-    @Autowired
     WxPayService wxPayService;
 
     @Override
     public WxPayResultDTO unifiedPayOrder(WxPayJSAPI wxPayJSAPI) {
 
         WxPayUnifiedOrderRequest wxPayUnifiedOrderRequest = new WxPayUnifiedOrderRequest();
-        wxPayUnifiedOrderRequest.setAppid(wxMaService.getWxMaConfig().getAppid());
+        wxPayUnifiedOrderRequest.setAppid(wxPayService.getConfig().getAppId());
         wxPayUnifiedOrderRequest.setOpenid(wxPayJSAPI.getOpenId());
         wxPayUnifiedOrderRequest.setBody(wxPayJSAPI.getOrderDesc());
         wxPayUnifiedOrderRequest.setOutTradeNo(wxPayJSAPI.getOrderNum());
