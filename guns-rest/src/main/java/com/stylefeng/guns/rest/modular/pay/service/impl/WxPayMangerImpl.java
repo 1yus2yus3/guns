@@ -63,15 +63,11 @@ public class WxPayMangerImpl implements WxPayManger {
             throw new GunsException(BizExceptionEnum.WX_UNIFIED_PAY_ERROR);
         }
 
-
         WxPayResultDTO wxPayResultDTO = new WxPayResultDTO();
-
         wxPayResultDTO.setNonceStr(UUID.randomUUID().toString().replaceAll("-", ""));
         wxPayResultDTO.setPackageStr("prepay_id="+requestResult.getPrepayId());
         wxPayResultDTO.setTimeStamp(String.valueOf(System.currentTimeMillis()/1000));
         wxPayResultDTO.setSignType("MD5");
-
-
         //二次签名
         Map<String,String> params = new HashMap<>();
         params.put("timeStamp",wxPayResultDTO.getTimeStamp());
@@ -81,7 +77,6 @@ public class WxPayMangerImpl implements WxPayManger {
         params.put("appId",wxPayUnifiedOrderRequest.getAppid());
 
         String paySign = SignUtils.createSign(params,"MD5",wxPayService.getConfig().getMchKey(),null);
-
         wxPayResultDTO.setPaySign(paySign);
 
         return wxPayResultDTO;
