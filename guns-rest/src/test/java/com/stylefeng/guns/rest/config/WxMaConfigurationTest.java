@@ -1,12 +1,12 @@
 package com.stylefeng.guns.rest.config;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
+import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
+import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
 import com.stylefeng.guns.BaseTest;
 import org.junit.Test;
 
 import javax.annotation.Resource;
-
-import static org.junit.Assert.*;
 
 /**
  * Copyright (C),
@@ -25,8 +25,16 @@ public class WxMaConfigurationTest extends BaseTest {
 
 
     @Test
-    public void wxMaServiceSmallProgram() {
-        wxMaServiceSmallProgram.toString();
+    public void wxMaServiceSmallProgram()throws Exception {
+        WxMaJscode2SessionResult sessionResult = wxMaServiceSmallProgram.getUserService().
+                getSessionInfo("061rFIBF1A9JQ70gEECF1WzZBF1rFIBd");
+
+        WxMaUserInfo wxMaUserInfo = wxMaServiceSmallProgram.getUserService().
+                getUserInfo(sessionResult.getSessionKey(),
+                        "YPZIAuit3A7vS0IYAnhyXwgKX+EAUgHd4x0thHs4PX7TEayG4f6jpn/9cnwCpJcpsotAGE9dGAWsINHh2//8uOyhRfANw8IdEcAmzA1iLKMfa44z1+UHpCCwpccVRgRyrDeKG5d9G6e9m9PlpWaarufheBBMJ7HZRAOeksmstMjC6yKBH49z1AQ+5jxAUIF3FpEz4NQ4TMfV+Xnl8qugkmNzlrvt615UgtzCsHPbPJl/tK5yPqCX05X+WAIUDmJHGbYTs+jEr8u1c7QVYgqLCHrdenVCMZF1DSmdMcaBy0KpiWlF7b/YBWUitHk+fccVQoBH2AlQGqmt497VcZ8ZwauC3sB2B+kMCUdyobbGYRuC5cTcD/+0cLxQImMW5IXOy7dYxcC+6pL/srzLifdBOBil4Djb+/Pp1eShRWHpQpPk8DNc+FMD7xtio80IDEs66sXGEj62Brq66NCUvAObcTX5lrIgNarJR9OoeRi6siZ2Cv1kL1vEv+okchQLM6Egqzf6X7+BgkbWVy9LdzOrYA==",
+                        "wUBPez9TnjyNyXd4r3pOUg==");
+
+        //验证成功：只要使用默认的小程序初始化页面即可验证。
     }
 
     @Test
