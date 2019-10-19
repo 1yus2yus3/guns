@@ -10,6 +10,10 @@ import com.stylefeng.guns.core.exception.ServiceExceptionEnum;
  */
 public enum BizExceptionEnum implements ServiceExceptionEnum {
 
+    /***
+     * 缺少参数
+     */
+    PARAM_NO_ERROR(400,"接口缺少必要参数"),
     /**
      * token异常
      */
@@ -22,14 +26,30 @@ public enum BizExceptionEnum implements ServiceExceptionEnum {
     SIGN_ERROR(700, "签名验证失败"),
 
     /**
-     * 其他
+     * 账户登录
      */
     AUTH_REQUEST_ERROR(600, "账号密码错误"),
+
+    /**
+     * 账户登录
+     */
+    AUTH_REQUEST_NO_USER_ERROR(601, "用户未注册"),
+
+    /***
+     * 系统内部异常
+     */
+    SYSTEM_ERROR(500,"系统内部异常"),
 
     /***
      * 统一下单错误
      */
     WX_UNIFIED_PAY_ERROR(1001, "微信支付统一下单接口异常"),
+
+    /***
+     * 微信授权缺少个人信息
+     */
+    WX_AUTH_NO_USER_INFO_ERROR(1002, "微信授权缺少个人信息"),
+
     ;
 
     BizExceptionEnum(int code, String message) {

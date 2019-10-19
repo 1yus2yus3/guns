@@ -1,8 +1,5 @@
 package com.stylefeng.guns.fastjson;
 
-import com.alibaba.fastjson.JSON;
-import com.stylefeng.guns.core.util.MD5Util;
-import com.stylefeng.guns.rest.common.SimpleObject;
 import com.stylefeng.guns.rest.modular.auth.converter.BaseTransferEntity;
 
 /**
@@ -19,7 +16,7 @@ public class JsonTest {
         String randomKey = "1xm7hw";
 
         BaseTransferEntity baseTransferEntity = new BaseTransferEntity();
-        SimpleObject simpleObject = new SimpleObject();
+       /* SimpleObject simpleObject = new SimpleObject();
         simpleObject.setUser("fsn");
         baseTransferEntity.setObject("123123");
 
@@ -29,6 +26,6 @@ public class JsonTest {
         String encrypt = MD5Util.encrypt(json + randomKey);
         baseTransferEntity.setSign(encrypt);
 
-        System.out.println(JSON.toJSONString(baseTransferEntity));
+        System.out.println(JSON.toJSONString(baseTransferEntity));*/
     }
 }

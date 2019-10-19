@@ -1,41 +1,49 @@
 package com.stylefeng.guns.rest.modular.auth.controller.dto;
 
-import com.stylefeng.guns.rest.modular.auth.validator.dto.Credence;
+import java.io.Serializable;
 
 /**
  * 认证的请求dto
  *
- * @author fengshuonan
+ * @author cola
  * @Date 2017/8/24 14:00
  */
-public class AuthRequest implements Credence {
+public class AuthRequest implements Serializable {
 
-    private String userName;
-    private String password;
+    private String code;
+    private String encryptedData;
+    private String iv;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getCode() {
+        return code;
     }
 
-    public String getPassword() {
-        return password;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getEncryptedData() {
+        return encryptedData;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setEncryptedData(String encryptedData) {
+        this.encryptedData = encryptedData;
+    }
+
+    public String getIv() {
+        return iv;
+    }
+
+    public void setIv(String iv) {
+        this.iv = iv;
     }
 
     @Override
-    public String getCredenceName() {
-        return this.userName;
-    }
-
-    @Override
-    public String getCredenceCode() {
-        return this.password;
+    public String toString() {
+        return "AuthRequest{" +
+                "code='" + code + '\'' +
+                ", encryptedData='" + encryptedData + '\'' +
+                ", iv='" + iv + '\'' +
+                '}';
     }
 }

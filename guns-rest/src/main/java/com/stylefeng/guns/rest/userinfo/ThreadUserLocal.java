@@ -1,8 +1,6 @@
 package com.stylefeng.guns.rest.userinfo;
 
 
-import com.stylefeng.guns.rest.common.persistence.model.User;
-
 /**
  * @author Cola
  * @version 创建时间：2018/7/16下午3:58
@@ -10,13 +8,13 @@ import com.stylefeng.guns.rest.common.persistence.model.User;
  */
 public class ThreadUserLocal {
 
-    private static ThreadLocal<User> local = new ThreadLocal<>();
+    private static ThreadLocal<LoginUser> local = new ThreadLocal<>();
 
-    public static void setUserLocal(User user) {
+    public static void setUserLocal(LoginUser user) {
        local.set(user);
     }
 
-    public static User getUserLocal(){
+    public static LoginUser getUserLocal(){
         return local.get();
     }
 }

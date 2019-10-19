@@ -27,7 +27,7 @@ public class WxMaConfigurationTest extends BaseTest {
     @Test
     public void wxMaServiceSmallProgram()throws Exception {
         WxMaJscode2SessionResult sessionResult = wxMaServiceSmallProgram.getUserService().
-                getSessionInfo("061rFIBF1A9JQ70gEECF1WzZBF1rFIBd");
+                getSessionInfo("081QLo8n00RMMl19649n0eAz8n0QLo8o");
 
         WxMaUserInfo wxMaUserInfo = wxMaServiceSmallProgram.getUserService().
                 getUserInfo(sessionResult.getSessionKey(),

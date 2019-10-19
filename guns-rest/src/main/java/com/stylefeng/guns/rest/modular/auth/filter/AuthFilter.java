@@ -3,6 +3,7 @@ package com.stylefeng.guns.rest.modular.auth.filter;
 import com.stylefeng.guns.core.base.tips.ErrorTip;
 import com.stylefeng.guns.core.util.RenderUtil;
 import com.stylefeng.guns.rest.common.exception.BizExceptionEnum;
+import com.stylefeng.guns.rest.config.WebInterceptUrlConfig;
 import com.stylefeng.guns.rest.config.properties.JwtProperties;
 import com.stylefeng.guns.rest.modular.auth.util.JwtTokenUtil;
 import io.jsonwebtoken.JwtException;
@@ -36,6 +37,11 @@ public class AuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (request.getServletPath().equals("/" + jwtProperties.getAuthPath())) {
+            chain.doFilter(request, response);
+            return;
+        }
+        //过滤无需登录信息的接口地址
+        if (WebInterceptUrlConfig.RUL_NO_INTERCEPT_LIST.contains(request.getServletPath())) {
             chain.doFilter(request, response);
             return;
         }

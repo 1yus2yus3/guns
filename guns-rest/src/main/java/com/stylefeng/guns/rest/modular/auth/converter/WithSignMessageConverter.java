@@ -6,7 +6,7 @@ import com.stylefeng.guns.core.exception.GunsException;
 import com.stylefeng.guns.core.support.HttpKit;
 import com.stylefeng.guns.core.util.MD5Util;
 import com.stylefeng.guns.rest.common.exception.BizExceptionEnum;
-import com.stylefeng.guns.rest.common.persistence.model.User;
+import com.stylefeng.guns.rest.userinfo.LoginUser;
 import com.stylefeng.guns.rest.config.properties.JwtProperties;
 import com.stylefeng.guns.rest.modular.auth.security.DataSecurityAction;
 import com.stylefeng.guns.rest.modular.auth.util.JwtTokenUtil;
@@ -52,10 +52,9 @@ public class WithSignMessageConverter extends FastJsonHttpMessageConverter {
         /***
          * 处理登录用户信息
          */
-        String userName = jwtTokenUtil.getUsernameFromToken(token);
-        User user = new User();
-        user.setId(1L);
-        user.setUserName(userName);
+        String userId =  jwtTokenUtil.getUsernameFromToken(token);
+        LoginUser user = new LoginUser();
+        user.setId(Long.parseLong(userId));
         ThreadUserLocal.setUserLocal(user);
 
         String object = baseTransferEntity.getObject();
