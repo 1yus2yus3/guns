@@ -7,10 +7,10 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.stylefeng.guns.core.enums.WxUserAuthSourceTypeEnum;
 import com.stylefeng.guns.core.enums.WxUserStatusEnum;
 import com.stylefeng.guns.core.exception.GunsException;
-import com.stylefeng.guns.core.persistence.model.WxUser;
-import com.stylefeng.guns.core.persistence.model.WxUserAuths;
-import com.stylefeng.guns.core.persistence.service.IWxUserAuthsService;
-import com.stylefeng.guns.core.persistence.service.IWxUserService;
+import com.stylefeng.guns.rest.persistence.model.WxUser;
+import com.stylefeng.guns.rest.persistence.model.WxUserAuths;
+import com.stylefeng.guns.rest.persistence.service.IWxUserAuthsService;
+import com.stylefeng.guns.rest.persistence.service.IWxUserService;
 import com.stylefeng.guns.rest.common.exception.BizExceptionEnum;
 import com.stylefeng.guns.rest.modular.auth.controller.dto.AuthRequest;
 import com.stylefeng.guns.rest.modular.auth.controller.dto.AuthResponse;
@@ -41,9 +41,9 @@ public class AuthController {
     @Resource(name = "wxMaServiceSmallProgram")
     private WxMaService wxMaServiceSmallProgram;
     @Resource
-    private IWxUserAuthsService wxUserAuthsService;
+    private IWxUserAuthsService iWxUserAuthsService;
     @Resource
-    private IWxUserService wxUserService;
+    private IWxUserService iWxUserService;
 
     @RequestMapping(value = "${jwt.auth-path}")
     public ResponseEntity<?> createAuthenticationToken(AuthRequest authRequest) {
@@ -62,7 +62,7 @@ public class AuthController {
         wxUserAuths.setSourceType(WxUserAuthSourceTypeEnum.MINI_PROGRAM_OPENID.getValue());
         wxUserAuths.setIdentifier(sessionResult.getOpenid());
         wxUserAuths.setValid(1);
-        wxUserAuths =  wxUserAuthsService.selectOne(new EntityWrapper<>());
+        wxUserAuths =  iWxUserAuthsService.selectOne(new EntityWrapper<>());
         //openid未找到系统对应的微信用户 调用用户注册逻辑
         if(wxUserAuths == null) {
             if(authRequest.getEncryptedData() == null || authRequest.getIv() == null) {
@@ -89,15 +89,16 @@ public class AuthController {
             wxUser.setProvince(wxMaUserInfo.getProvince());
             wxUser.setCity(wxMaUserInfo.getCity());
             wxUser.setStatus(WxUserStatusEnum.NORMAL.getValue());
-            wxUserService.insert(wxUser);
+            iWxUserService.insert(wxUser);
             //持久化新用户授权方式
             wxUserAuths = new WxUserAuths();
             wxUserAuths.setUserId(wxUser.getId());
             wxUserAuths.setSourceType(WxUserAuthSourceTypeEnum.MINI_PROGRAM_OPENID.getValue());
             wxUserAuths.setIdentifier(sessionResult.getOpenid());
             wxUserAuths.setValid(1);
-            wxUserAuthsService.insert(wxUserAuths);
+            iWxUserAuthsService.insert(wxUserAuths);
         }
+        //userinfo => token
         final String randomKey = jwtTokenUtil.getRandomKey();
         final String token = jwtTokenUtil.generateToken(wxUserAuths.getUserId().toString(), randomKey);
         return ResponseEntity.ok(new AuthResponse(token, randomKey));
