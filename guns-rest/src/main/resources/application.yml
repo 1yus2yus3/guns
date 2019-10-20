@@ -70,11 +70,3 @@ wx:
     subMchId:
     # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）
     keyPath: classpath:/apiclient_cert.p12
-
-
-# 七牛云
-qiniu:
-  accessKey: 1
-  secretKey: 1
-  bucket: 1
-  bucketUrl: 1

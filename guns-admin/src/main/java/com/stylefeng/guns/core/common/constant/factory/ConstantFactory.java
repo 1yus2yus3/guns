@@ -6,6 +6,7 @@ import com.stylefeng.guns.core.common.constant.cache.Cache;
 import com.stylefeng.guns.core.common.constant.cache.CacheKey;
 import com.stylefeng.guns.core.common.constant.state.ManagerStatus;
 import com.stylefeng.guns.core.common.constant.state.MenuStatus;
+import com.stylefeng.guns.core.enums.TradeOrderStatusEnum;
 import com.stylefeng.guns.core.enums.WxUserSexEnum;
 import com.stylefeng.guns.core.enums.WxUserStatusEnum;
 import com.stylefeng.guns.modular.system.dao.*;
@@ -340,5 +341,10 @@ public class ConstantFactory implements IConstantFactory {
     @Override
     public String getWxUserSexName(String status) {
         return WxUserSexEnum.getEnumByValue(Integer.parseInt(status)).getName();
+    }
+
+    @Override
+    public String getTradeOrderStatusName(Integer status) {
+        return TradeOrderStatusEnum.getEnumByValue(status).getName();
     }
 }

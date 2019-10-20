@@ -54,13 +54,6 @@
             <version>3.3.0</version>
         </dependency>
 
-        <!-- 七牛云SDK -->
-        <dependency>
-            <groupId>com.qiniu</groupId>
-            <artifactId>qiniu-java-sdk</artifactId>
-            <version>7.2.19</version>
-        </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -32,6 +32,14 @@ mybatis-plus:
 log:
   path: guns-logs
 
+
+# 七牛云
+qiniu:
+  accessKey: A5S4oXnr96-1KkvtIIXoBmzFAx68p1gS8mggmmK9
+  secretKey: Y3Bg6rzLtYo1yyR3-TgJhodueJcGClsx-SFP8XuQ
+  bucket: magazine-test
+  bucketUrl: http://pzoiwld0g.bkt.clouddn.com/
+
 ---
 
 spring:

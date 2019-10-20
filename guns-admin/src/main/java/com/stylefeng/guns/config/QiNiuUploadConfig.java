@@ -1,4 +1,4 @@
-package com.stylefeng.guns.rest.config;
+package com.stylefeng.guns.config;
 
 import com.google.gson.Gson;
 import com.qiniu.common.Region;
@@ -8,9 +8,9 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
+import com.stylefeng.guns.core.common.exception.BizExceptionEnum;
+import com.stylefeng.guns.core.config.properties.QiNiuProperties;
 import com.stylefeng.guns.core.exception.GunsException;
-import com.stylefeng.guns.core.exception.GunsExceptionEnum;
-import com.stylefeng.guns.rest.config.properties.QiNiuProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +73,7 @@ public class QiNiuUploadConfig {
         //打印返回的信息
         logger.info("【七牛文件上传】返回信息{}", res.bodyString());
         if (!res.isOK()) {
-            throw new GunsException(GunsExceptionEnum.SERVER_ERROR);
+            throw new GunsException(BizExceptionEnum.FILE_READING_ERROR);
         }
         //解析上传成功的结果
         DefaultPutRet putRet = new Gson().fromJson(res.bodyString(), DefaultPutRet.class);

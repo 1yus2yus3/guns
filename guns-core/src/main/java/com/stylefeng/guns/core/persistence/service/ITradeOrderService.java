@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author codeGenerator
- * @since 2019-10-19
+ * @since 2019-10-20
  */
 public interface ITradeOrderService extends IService<TradeOrder> {
 

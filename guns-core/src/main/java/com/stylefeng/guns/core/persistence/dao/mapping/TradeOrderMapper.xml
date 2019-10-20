@@ -20,8 +20,10 @@
         <result column="channel_type" property="channelType" />
         <result column="status" property="status" />
         <result column="close_reason" property="closeReason" />
+        <result column="out_order_code" property="outOrderCode" />
         <result column="pay_success_date" property="paySuccessDate" />
         <result column="close_date" property="closeDate" />
+        <result column="create_date" property="createDate" />
         <result column="version_no" property="versionNo" />
     </resultMap>
 

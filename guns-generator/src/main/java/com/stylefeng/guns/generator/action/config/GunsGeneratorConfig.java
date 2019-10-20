@@ -32,7 +32,7 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
     protected void strategyConfig() {
         //strategyConfig.setTablePrefix(new String[]{"wx_user"});// 此处可以修改为您的表前缀
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
-        strategyConfig.setInclude(new String[]{"wx_user"});
+        strategyConfig.setInclude(new String[]{"trade_order"});
     }
 
     protected void packageConfig() {
@@ -45,11 +45,11 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
     protected void contextConfig() {
         contextConfig.setProPackage("com.stylefeng.guns.admin");
         contextConfig.setCoreBasePackage("com.stylefeng.guns.core");
-        contextConfig.setBizChName("微信用户管理");
-        contextConfig.setBizEnName("system");
-        contextConfig.setModuleName("wxUser");
+        contextConfig.setBizChName("订单管理");
+        contextConfig.setBizEnName("tradeOrder");
+        contextConfig.setModuleName("system");
         contextConfig.setProjectPath("/Users/yushuai/Desktop");//写自己项目的绝对路径
-        contextConfig.setEntityName("WxUser");
+        contextConfig.setEntityName("tradeOrder");
         sqlConfig.setParentMenuName(null);//这里写已有菜单的名称,当做父节点
 
         /**

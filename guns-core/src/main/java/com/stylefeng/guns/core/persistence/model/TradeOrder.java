@@ -1,13 +1,14 @@
 package com.stylefeng.guns.core.persistence.model;
 
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
-import java.io.Serializable;
 
 /**
  * <p>
@@ -15,7 +16,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author codeGenerator
- * @since 2019-10-19
+ * @since 2019-10-20
  */
 @TableName("trade_order")
 public class TradeOrder extends Model<TradeOrder> {
@@ -102,6 +103,11 @@ public class TradeOrder extends Model<TradeOrder> {
     @TableField("close_reason")
     private String closeReason;
     /**
+     * 外部订单号
+     */
+    @TableField("out_order_code")
+    private String outOrderCode;
+    /**
      * 支付成功时间
      */
     @TableField("pay_success_date")
@@ -111,6 +117,11 @@ public class TradeOrder extends Model<TradeOrder> {
      */
     @TableField("close_date")
     private Date closeDate;
+    /**
+     * 创建时间
+     */
+    @TableField("create_date")
+    private Date createDate;
     /**
      * 乐观锁
      */
@@ -246,6 +257,14 @@ public class TradeOrder extends Model<TradeOrder> {
         this.closeReason = closeReason;
     }
 
+    public String getOutOrderCode() {
+        return outOrderCode;
+    }
+
+    public void setOutOrderCode(String outOrderCode) {
+        this.outOrderCode = outOrderCode;
+    }
+
     public Date getPaySuccessDate() {
         return paySuccessDate;
     }
@@ -260,6 +279,14 @@ public class TradeOrder extends Model<TradeOrder> {
 
     public void setCloseDate(Date closeDate) {
         this.closeDate = closeDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public Integer getVersionNo() {
@@ -294,8 +321,10 @@ public class TradeOrder extends Model<TradeOrder> {
         ", channelType=" + channelType +
         ", status=" + status +
         ", closeReason=" + closeReason +
+        ", outOrderCode=" + outOrderCode +
         ", paySuccessDate=" + paySuccessDate +
         ", closeDate=" + closeDate +
+        ", createDate=" + createDate +
         ", versionNo=" + versionNo +
         "}";
     }

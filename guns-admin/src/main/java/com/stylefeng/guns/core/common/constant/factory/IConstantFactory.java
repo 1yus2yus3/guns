@@ -127,4 +127,11 @@ public interface IConstantFactory {
      */
     String getWxUserSexName(String status);
 
+    /***
+     * 获取订单状态
+     * @param status
+     * @return
+     */
+    String getTradeOrderStatusName(Integer status);
+
 }
