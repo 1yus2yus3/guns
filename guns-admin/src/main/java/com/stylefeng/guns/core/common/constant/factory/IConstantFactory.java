@@ -113,4 +113,18 @@ public interface IConstantFactory {
      */
     List<Integer> getParentDeptIds(Integer deptid);
 
+    /***
+     * 获取微信用户状态
+     * @param status
+     * @return
+     */
+    String getWxUserStatusName(Integer status);
+
+    /***
+     * 获取微信用户状态
+     * @param status
+     * @return
+     */
+    String getWxUserSexName(String status);
+
 }

@@ -46,7 +46,7 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
         contextConfig.setProPackage("com.stylefeng.guns.admin");
         contextConfig.setCoreBasePackage("com.stylefeng.guns.core");
         contextConfig.setBizChName("微信用户管理");
-        contextConfig.setBizEnName("wxUser");
+        contextConfig.setBizEnName("system");
         contextConfig.setModuleName("wxUser");
         contextConfig.setProjectPath("/Users/yushuai/Desktop");//写自己项目的绝对路径
         contextConfig.setEntityName("WxUser");
