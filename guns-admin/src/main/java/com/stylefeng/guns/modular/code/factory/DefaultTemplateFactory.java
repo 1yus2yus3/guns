@@ -26,7 +26,7 @@ public class DefaultTemplateFactory {
         ArrayList<Map<String, Object>> templates = new ArrayList<>();
         templates.add(create("controllerSwitch","controller-控制器模板"));
         templates.add(create("entitySwitch","entity-实体模板"));
-        templates.add(create("serviceSwitch","com.stylefeng.guns.rest.persistence.service-service模板"));
+        templates.add(create("serviceSwitch","com.stylefeng.guns.core.persistence.service-service模板"));
         templates.add(create("daoSwitch","dao-dao模板"));
         templates.add(create("indexPageSwitch","indexPage-首页模板"));
         templates.add(create("addPageSwitch","addPage-添加页面模板"));

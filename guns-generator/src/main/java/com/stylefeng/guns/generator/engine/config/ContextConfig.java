@@ -12,7 +12,7 @@ import com.stylefeng.guns.core.util.ToolUtil;
 public class ContextConfig {
 
     private String templatePrefixPath = "gunsTemplate/advanced";
-    private String projectPath = "D:\\ideaSpace\\guns";//模板输出的项目目录
+    private String projectPath = "/Users/yushuai/Desktop";//模板输出的项目目录
     private String bizChName;   //业务名称
     private String bizEnName;   //业务英文名称
     private String bizEnBigName;//业务英文名称(大写)
@@ -31,7 +31,7 @@ public class ContextConfig {
     private Boolean jsSwitch = true;            //js
     private Boolean infoJsSwitch = true;        //详情页面js
     private Boolean daoSwitch = true;           //dao
-    private Boolean serviceSwitch = true;       //com.stylefeng.guns.rest.persistence.service
+    private Boolean serviceSwitch = true;       //com.stylefeng.guns.core.persistence.service
     private Boolean entitySwitch = true;        //生成实体的开关
     private Boolean sqlSwitch = true;           //生成sql的开关
 
