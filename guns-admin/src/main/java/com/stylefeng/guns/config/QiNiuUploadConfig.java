@@ -8,8 +8,8 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
+import com.stylefeng.guns.config.properties.QiNiuProperties;
 import com.stylefeng.guns.core.common.exception.BizExceptionEnum;
-import com.stylefeng.guns.core.config.properties.QiNiuProperties;
 import com.stylefeng.guns.core.exception.GunsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -124,7 +124,7 @@ public class QiNiuUploadConfig {
      * @throws Exception
      */
     public String uploadImgDefaultName(String pathPrefix, byte[] file) throws Exception {
-        String key = pathPrefix + UUID.randomUUID().toString() + ".jpg";
+        String key = pathPrefix + "/"+UUID.randomUUID().toString() + ".jpg";
         return upload(file, key);
     }
 
