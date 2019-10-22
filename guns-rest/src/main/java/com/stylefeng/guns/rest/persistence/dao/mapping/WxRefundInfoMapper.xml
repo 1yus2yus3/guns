@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.persistence.dao.WxRefundInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.persistence.model.WxRefundInfo">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="order_num" property="orderNum" />
+        <result column="refund_order_id" property="refundOrderId" />
+        <result column="out_refund_no" property="outRefundNo" />
+        <result column="out_trade_no" property="outTradeNo" />
+        <result column="refund_money" property="refundMoney" />
+        <result column="request_data" property="requestData" />
+        <result column="response_data" property="responseData" />
+        <result column="appid" property="appid" />
+        <result column="much_id" property="muchId" />
+    </resultMap>
+
+</mapper>

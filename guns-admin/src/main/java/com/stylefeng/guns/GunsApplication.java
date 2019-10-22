@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2017/5/21 12:06
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.stylefeng.guns.core.persistence.dao")
 public class GunsApplication {
 
     private final static Logger logger = LoggerFactory.getLogger(GunsApplication.class);

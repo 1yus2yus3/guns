@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.persistence.dao.WxRefundCallbackInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.persistence.model.WxRefundCallbackInfo">
+        <id column="id" property="id" />
+        <result column="back_data_before" property="backDataBefore" />
+        <result column="back_data_after" property="backDataAfter" />
+        <result column="back_time" property="backTime" />
+        <result column="appid" property="appid" />
+        <result column="much_id" property="muchId" />
+        <result column="nonce_str" property="nonceStr" />
+        <result column="total_fee" property="totalFee" />
+        <result column="transaction_id" property="transactionId" />
+        <result column="out_trade_no" property="outTradeNo" />
+        <result column="return_code" property="returnCode" />
+        <result column="return_msg" property="returnMsg" />
+        <result column="out_refund_no" property="outRefundNo" />
+        <result column="refund_status" property="refundStatus" />
+        <result column="settlement_total_fee" property="settlementTotalFee" />
+        <result column="refund_fee" property="refundFee" />
+        <result column="settlement_refund_fee" property="settlementRefundFee" />
+        <result column="refund_recv_accout" property="refundRecvAccout" />
+        <result column="refund_account" property="refundAccount" />
+        <result column="refund_request_source" property="refundRequestSource" />
+    </resultMap>
+
+</mapper>

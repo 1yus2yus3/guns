@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.stylefeng.guns.core.persistence")
 public class GunsRestApplication {
 
     public static void main(String[] args) {

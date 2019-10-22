@@ -48,7 +48,7 @@ public abstract class GunsTemplateEngine extends AbstractTemplateEngine {
         template.binding("controller", super.controllerConfig);
         template.binding("context", super.contextConfig);
         template.binding("dao", super.daoConfig);
-        template.binding("com.stylefeng.guns.core.persistence.service", super.serviceConfig);
+        template.binding("com.stylefeng.guns.rest.persistence.service", super.serviceConfig);
         template.binding("sqls", super.sqlConfig);
         template.binding("table", super.tableInfo);
     }

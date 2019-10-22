@@ -104,7 +104,7 @@ public class GenQo {
     private Boolean daoSwitch = false;
 
     /**
-     * com.stylefeng.guns.core.persistence.service
+     * com.stylefeng.guns.rest.persistence.service
      */
     private Boolean serviceSwitch = false;
 
