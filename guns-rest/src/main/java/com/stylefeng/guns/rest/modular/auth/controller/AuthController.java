@@ -62,7 +62,7 @@ public class AuthController {
         wxUserAuths.setSourceType(WxUserAuthSourceTypeEnum.MINI_PROGRAM_OPENID.getValue());
         wxUserAuths.setIdentifier(sessionResult.getOpenid());
         wxUserAuths.setValid(1);
-        wxUserAuths =  iWxUserAuthsService.selectOne(new EntityWrapper<>());
+        wxUserAuths =  iWxUserAuthsService.selectOne(new EntityWrapper<>(wxUserAuths));
         //openid未找到系统对应的微信用户 调用用户注册逻辑
         if(wxUserAuths == null) {
             if(authRequest.getEncryptedData() == null || authRequest.getIv() == null) {
