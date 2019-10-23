@@ -1,6 +1,10 @@
 package com.stylefeng.guns.fastjson;
 
+import com.alibaba.fastjson.JSON;
+import com.stylefeng.guns.core.util.MD5Util;
 import com.stylefeng.guns.rest.modular.auth.converter.BaseTransferEntity;
+import com.stylefeng.guns.rest.modular.auth.security.impl.Base64SecurityAction;
+import com.stylefeng.guns.rest.modular.example.param.Test;
 
 /**
  * json测试
@@ -13,19 +17,21 @@ import com.stylefeng.guns.rest.modular.auth.converter.BaseTransferEntity;
 public class JsonTest {
 
     public static void main(String[] args) {
-        String randomKey = "1xm7hw";
+        String randomKey = "0k40h4";
 
         BaseTransferEntity baseTransferEntity = new BaseTransferEntity();
-       /* SimpleObject simpleObject = new SimpleObject();
-        simpleObject.setUser("fsn");
-        baseTransferEntity.setObject("123123");
+        Test simpleObject = new Test();
+        simpleObject.setTestName("hahah");
 
-        String json = JSON.toJSONString(simpleObject);
+        String jsonString = JSON.toJSONString(simpleObject);
+        String encode = new Base64SecurityAction().doAction(jsonString);
+        baseTransferEntity.setObject(encode);
+
 
         //md5签名
-        String encrypt = MD5Util.encrypt(json + randomKey);
+        String encrypt = MD5Util.encrypt(jsonString + randomKey);
         baseTransferEntity.setSign(encrypt);
 
-        System.out.println(JSON.toJSONString(baseTransferEntity));*/
+        System.out.println(JSON.toJSONString(baseTransferEntity));
     }
 }
