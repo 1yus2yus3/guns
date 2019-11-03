@@ -1,7 +1,7 @@
 package com.stylefeng.guns.modular.system.dao;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.stylefeng.guns.modular.system.model.TradeOrder;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.stylefeng.guns.modular.system.model.TradeOrder;
  * </p>
  *
  * @author codeGenerator
- * @since 2019-10-20
+ * @since 2019-10-23
  */
 public interface TradeOrderMapper extends BaseMapper<TradeOrder> {
 

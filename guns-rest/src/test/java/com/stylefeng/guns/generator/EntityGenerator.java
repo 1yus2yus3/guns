@@ -29,7 +29,7 @@ public class EntityGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("/Users/yushuai/IdeaProjects/guns/guns-core/src/main/java");//这里写你自己的java目录
+        gc.setOutputDir("/Users/yushuai/IdeaProjects/guns/guns-admin/src/main/java");//这里写你自己的java目录
         gc.setFileOverride(true);//是否覆盖
         gc.setActiveRecord(true);
         gc.setEnableCache(false);// XML 二级缓存
@@ -58,19 +58,19 @@ public class EntityGenerator {
         StrategyConfig strategy = new StrategyConfig();
         //strategy.setTablePrefix(new String[]{"_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        //strategy.setInclude(new String[]{"wx_callback_info","trade_order","wx_refund_callback_info","wx_refund_info"});
-        strategy.setInclude(new String[]{"trade_order"});
-//        strategy.setInclude(new String[]{"wx_user","wx_user_auths"});
+       // strategy.setInclude(new String[]{"wx_callback_info","trade_order","wx_refund_callback_info","wx_refund_info"});
+      //  strategy.setInclude(new String[]{"trade_order"});
+        strategy.setInclude(new String[]{"wx_user","wx_user_auths"});
         mpg.setStrategy(strategy);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent(null);
-        pc.setEntity("com.stylefeng.guns.rest.persistence.model");
-        pc.setMapper("com.stylefeng.guns.rest.persistence.dao");
-        pc.setXml("com.stylefeng.guns.rest.persistence.dao.mapping");
-        pc.setService("com.stylefeng.guns.rest.persistence.service");       //本项目没用，生成之后删掉
-        pc.setServiceImpl("com.stylefeng.guns.rest.persistence.service.impl");   //本项目没用，生成之后删掉
+        pc.setEntity("com.stylefeng.guns.modular.system.model");
+        pc.setMapper("com.stylefeng.guns.modular.system.dao");
+        pc.setXml("com.stylefeng.guns.modular.system.dao.mapping");
+        pc.setService("TTT");       //本项目没用，生成之后删掉
+        pc.setServiceImpl("TTT");   //本项目没用，生成之后删掉
 
 //        pc.setController("TTT");    //本项目没用，生成之后删掉
         mpg.setPackageInfo(pc);

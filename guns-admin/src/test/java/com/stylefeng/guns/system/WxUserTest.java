@@ -3,8 +3,8 @@ package com.stylefeng.guns.system;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.stylefeng.guns.base.BaseJunit;
 import com.stylefeng.guns.core.enums.WxUserAuthSourceTypeEnum;
-import com.stylefeng.guns.rest.persistence.model.WxUserAuths;
-import com.stylefeng.guns.rest.persistence.service.IWxUserAuthsService;
+import com.stylefeng.guns.modular.system.model.WxUserAuths;
+import com.stylefeng.guns.modular.system.service.IWxUserAuthsService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

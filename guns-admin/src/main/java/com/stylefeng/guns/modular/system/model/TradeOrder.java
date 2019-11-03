@@ -1,14 +1,13 @@
 package com.stylefeng.guns.modular.system.model;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
-
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -16,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author codeGenerator
- * @since 2019-10-20
+ * @since 2019-10-23
  */
 @TableName("trade_order")
 public class TradeOrder extends Model<TradeOrder> {
